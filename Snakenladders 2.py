@@ -1,6 +1,6 @@
 from random import randint
 
-class Player:
+class Player:  # Class that contains all the player details i.e name, pos
 
 
     def __init__(self, name, pos, player_no):
@@ -20,7 +20,7 @@ def dice():
     x = randint(1, 6)
     return x
 
-snl = {6: 17, 4: 3, 20: 15, 24: 26, 30: 44, 39: 33, 49: 62, 66: 53, 69: 58, 79: 67, 82: 86 ,84: 71,88: 36}
+snl = {6: 17, 4: 3, 20: 15, 24: 26, 30: 44, 39: 33, 49: 62, 66: 53, 69: 58, 79: 67, 82: 86 ,84: 71,88: 36} #snakes and ladders
 
 def main():
     running = True
@@ -29,7 +29,7 @@ def main():
     n = input()
     for i in range(0, int(n)):
         name = input("enter the name")
-        pl_list.append(Player(name, 0, i+1))
+        pl_list.append(Player(name, 0, i+1)) #initializing a list of objects to the class Player
     while(running):
         for i in range(0, len(pl_list)):
             input("Player--> " + pl_list[i].name + " hit enter to roll the dice")
@@ -41,7 +41,7 @@ def main():
 
             elif pl_list[i].getPosition() != 100:
                 for x in snl:
-                    if pl_list[i].getPosition() == x:
+                    if pl_list[i].getPosition() == x:   #TO check wheather snake or ladder is encounterd
                         if x < snl[x]:
                             print("you reached a ladder advance")
                             pl_list[i].updatePosition(snl[x])
